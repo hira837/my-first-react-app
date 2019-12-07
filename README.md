@@ -65,4 +65,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `yarn build` fails to minify
 
+
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## props
+- componentの属性の名前のこと。props.name, props.age
+- propsには数値、文字列、配列、オブジェクト、関数、何でも使用可能
+- {}でわたしていく。
