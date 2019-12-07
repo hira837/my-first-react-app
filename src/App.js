@@ -1,18 +1,27 @@
 import React, {Component} from 'react';
 
 //function App() {
- // return <div>Improve React Skill</div> ;
+//const dom = <div>Improve React Skiil</div> ;
+//return = dom;
 //}
-class App extends Component {
-	render()
-	{
-	return React.createElement
-			(
-			"div",
-			null,
-			"Hello world!!"
-			);
-			}
+//class App extends Component {
+//	render(){
+//		const greeting = "Hi, Tom"	
+//		const dom = <h1 className="foo">{ greeting }</h1>;
+//		return dom;	
+//	}
+//}
 
-		}
+
+class App extends Component {
+	render(){
+		return (
+			<React.Fragment>
+				<label htmlFor="bar">bar</label>
+				<input type="text" onClick={() => {console.log("Hi there") }}/>;
+			</React.Fragment>
+)	
+	}	
+}
+
 export default App;
