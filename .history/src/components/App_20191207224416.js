@@ -23,9 +23,7 @@ const mapDispatchToProps = dispatch => ({
 	decrement: ()=> dispatch(decrement()),
  })
 
-// ショートハンド
-// const mapDispatchToProps = ({increment, decrement})
-
 export default connect(mapStateToProps, mapDispatchToProps)(App)
 // App（＝コンポーネント）は引数
 
+export default App;

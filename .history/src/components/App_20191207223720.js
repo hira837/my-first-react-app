@@ -17,15 +17,6 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = state => ({ value: state.count.value })
-const mapDispatchToProps = dispatch => ({ 
-	increment: ()=> dispatch(increment()),
-	decrement: ()=> dispatch(decrement()),
- })
+export default connect(mapStateToPros, maoDispatchToProps)(App)
 
-// ショートハンド
-// const mapDispatchToProps = ({increment, decrement})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
-// App（＝コンポーネント）は引数
-
+export default App;
