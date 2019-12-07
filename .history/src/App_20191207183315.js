@@ -33,17 +33,16 @@ class Counter extends Component {
 		this.state = { count: 0 }
 	}
 
+	const count = this.state.count
 	handlePlusButton = ()=> {
 		console.log("handlePlusButton")
 		console.log(this.state.count)
-		const currentCount = this.state.count
-		this.setState({ count: currentCount + 1 })
+		this.setState({ count: count + 1 })
 		// this.state = { count: this.state.count + 1 }
 	}
 
 	handleMinusButton = ()=> {
-		const currentCount = this.state.count
-		this.setState({ count: currentCount - 1 })
+		this.setState({ count: count - 1 })
 	}
 
 	render() {
