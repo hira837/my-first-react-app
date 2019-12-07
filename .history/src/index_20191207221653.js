@@ -8,10 +8,8 @@ import reducer from './reducers'
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-// すべてのreducerがここに集約
 const store = createStore(reducer)
 
-// Providerコンポーネント（すべてのコンポーネントでみれるように伝搬するための特殊なコンポーネント reacr-reduxで提供されている）で<App/>（既存のコンポーネント）を囲むことで、全てのコンポーネントからstoreにアクセスできるようになる
 ReactDOM.render(
   <Provider store={store}>
     <App />
