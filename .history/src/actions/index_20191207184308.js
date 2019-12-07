@@ -1,0 +1,8 @@
+
+{
+  type: 'INCREMENT'
+}
+
+{
+  type: 'DECREMENT'
+}
