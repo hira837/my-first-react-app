@@ -132,3 +132,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
   - それを別のコンポーネントに書いて、readEvents()で読みこむ
 
 ### reducer側の実装
+
+###  reduc form
+- yarn add react-router-dom　リンク機能
+- yarn add redux-form
