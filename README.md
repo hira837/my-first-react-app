@@ -139,3 +139,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - handleSubmit
 - pristine・・・何もない状態ではsubmitできないようにする
 - submitting・・・submitボタンが連打できる状態を防ぐ
+
+### redux show
+- yarn add redux-devtools-extension
+- 新しいメモリ空間上に、更新後のeventオブジェクトをreducerが返す　・・・　スプレッド演算子を使う
+
+## その他
+- 前のコミットをまとめる ```git rebase -i HEAD~3```
