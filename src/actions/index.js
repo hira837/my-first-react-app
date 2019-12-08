@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const READ_EVENTS = 'READ_EVENTS'
+export const CREATE_EVENTS = 'CREATE_EVENTS'
 
 const ROOT_URL = 'https://udemy-utils.herokuapp.com/api/v1'
 const QUERYSTRING = '?token=token123'
@@ -16,4 +17,9 @@ export const readEvents = () => async dispatch => {
 // コンポーネントで使うのでexportしておく
 // 再利用するので(REDUCERで使う)ので変数に格納し、exportしておく
 // view側でインポート。あるイベントに対し、これらのアクションを実行して、適切な状態遷移を実行するための仕組み
+
+export const postEvents = values => async dispatch => {
+  const response = await axios.post(`${ROOT_URL}/events${QUERYSTRING}`, values);
+  dispatch({ type: CREATE_EVENTS, response });
+};
 
