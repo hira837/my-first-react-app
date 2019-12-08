@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash'
 
 import { readEvents } from '../actions'
 
@@ -20,6 +19,8 @@ class EventsIndex extends Component {
 	}
 
 	render() {
+	const props = this.props
+
 	return (
     <table>
       <thead>

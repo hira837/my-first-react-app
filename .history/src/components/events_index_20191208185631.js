@@ -20,6 +20,8 @@ class EventsIndex extends Component {
 	}
 
 	render() {
+	const props = this.props
+
 	return (
     <table>
       <thead>
