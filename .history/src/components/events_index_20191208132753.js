@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 
 import { increment, decrement } from '../actions'
 
-class App extends Component {
+class EventsIndex extends Component {
+	componentDidMount() {
+		console.log('hi')
+		this.props.readEvents()
+	}
+
 	render() {
 	const props = this.props
 
@@ -22,10 +27,9 @@ const mapDispatchToProps = dispatch => ({
 	increment: ()=> dispatch(increment()),
 	decrement: ()=> dispatch(decrement()),
  })
-
 // ショートハンド
-// const mapDispatchToProps = ({increment, decrement})
+const mapDispatchToProps = ({ readEvents })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
-// App（＝コンポーネント）は引数
+export default connect(mapStateToProps, mapDispatchToProps)(EventsIndex)
+// EventsIndex（＝コンポーネント）は引数
 

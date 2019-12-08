@@ -1,11 +1,9 @@
 // Actionのタイプをimportしておく
-import { INCREMENT, DECREMENT } from '../actions'
-
-const initialState = { value: 0 }
+import { READ_EVENTS } from '../actions'
 
 // index.jsに渡す用関数, 
 // 引数２つ(state, action)
-export default (state = initialState, action) => {
+export default (state = {}, action) => {
   // ACTIONのタイプaction.typeで拾える(incrementかdecrementか)
   switch (action.type) {
     case INCREMENT:

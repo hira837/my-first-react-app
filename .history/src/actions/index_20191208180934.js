@@ -7,9 +7,11 @@ const QUERYSTRING = '?token=token123'
 
 // axiosは戻り値がpromiseなのでasyc awaitを使う
 export const readEvents = () => async dispatch => {
+    console.log("hoge");
     // pureなオブジェクトを返さなければばならい。ここで非同期処理はかけない
     // それを可能にする => redux thunk・・・関数を返せるようになる
     const response =  await axios.get(`${ROOT_URL}/events${QUERYSTRING}`)
+    console.log(response)
     dispatch({ type: READ_EVENTS, response })
 }
 // アクションクリエーター = READ_EVENTS
