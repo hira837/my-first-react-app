@@ -1,6 +1,9 @@
 import _ from 'lodash'
 // Actionのタイプをimportしておく
-import { READ_EVENTS, DELETE_EVENT } from '../actions'
+import { 
+  READ_EVENTS,
+  DELETE_EVENT
+} from '../actions'
 
 // index.jsに渡す用関数, 
 // 引数２つ(state, action)
@@ -20,9 +23,10 @@ export default (events = {}, action) => {
       // }
       return _.mapKeys(action.response.data, 'id')
     case DELETE_EVENT:
-      console.log(action.id)
       delete events[action.id]
+      // eventというオブジェクトから削除
       return { ...events };
+      // 新しいメモリ空間上に再配置、更新されたものを=>スプレッド演算子を使う
     default:
       return events
   } 

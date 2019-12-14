@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Field, reduxForm } from 'redux-form';
 import { Link } from "react-router-dom";
 
-import { getEvents, deleteEvent, putEvent } from "../actions";
+import { getEvent, deleteEvent, putEvent } from "../actions";
 
 class EventsShow extends Component {
   // initializeしたときにbindしておく
@@ -12,6 +12,12 @@ class EventsShow extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.onDeleteClick = this.onDeleteClick.bind(this)
   }
+
+  // componentDidMount() {
+  //   const { id } = this.props.match.params
+  //   if (id) this.props.getEvent(id)
+  // }
+
   renderField(field) {
     const { input, label, type, meta: { touched, error } } = field
 
@@ -61,6 +67,10 @@ const validate = values => {
   return errors
 }
 
+// const mapStateToProps = (state, ownProps) => {
+//   const event = state.events[ownProps.match.paramas.id]
+//   return { initialValues: event, event } 
+// }
 const mapDispatchToProps = { deleteEvent };
 
 export default connect(null, mapDispatchToProps)(
