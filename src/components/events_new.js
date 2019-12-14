@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Field, reduxForm } from 'redux-form';
 import { Link } from "react-router-dom";
 
-import { postEvents } from "../actions";
+import { postEvent } from "../actions";
 
 class EventsNew extends Component {
   // initializeしたときにbindしておく
@@ -23,12 +23,12 @@ class EventsNew extends Component {
   }
 
   async onSubmit(values) {
-    await this.props.postEvents(values);
+    await this.props.postEvent(values);
     this.props.history.push("/");
   }
 
   render() {
-    const { handleSubmit, pristine, submitting } = this.props
+    const { handleSubmit, pristine, submitting, invalid } = this.props
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         {/* FieldはreduxFormでデコレートされていないと使えない */}
@@ -36,7 +36,7 @@ class EventsNew extends Component {
         <div><Field label="Body" name="body" tyle="text" component={this.renderField} /></div>
         
         <div>
-          <input type="submit" value="Submit" disabled={pristine || submitting} />
+          <input type="submit" value="Submit" disabled={pristine || submitting || invalid} />
           <Link to="/" >Cancel</Link>
         </div>
       </form>
@@ -53,7 +53,7 @@ const validate = values => {
   return errors
 }
 
-const mapDispatchToProps = { postEvents };
+const mapDispatchToProps = { postEvent };
 
 export default connect(null, mapDispatchToProps)(
   reduxForm({ validate, form: 'eventNewForm' })(EventsNew)
