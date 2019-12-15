@@ -13,6 +13,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import Fab from "@material-ui/core/Fab";
+// import AddIcon from "@material-ui/icons/Add";
 
 
 const useStyles = makeStyles({
@@ -43,6 +45,8 @@ class EventsIndex extends Component {
 	}
 
 	render() {
+
+  const style = { margin: 12 }
 	return (
     <React.Fragment>
       <Paper>
@@ -58,10 +62,12 @@ class EventsIndex extends Component {
         </Table>
       </Paper>
 
-      <Button variant="outlined" color="primary">
-        <Link to="events/new">New Event</Link>
-      </Button>
-   
+      <Fab
+        color="primary"
+        children="+"
+        href="events/new"
+        style={style}
+      />
     </React.Fragment>
   );
 	}
