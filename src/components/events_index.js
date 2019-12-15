@@ -12,20 +12,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
 import Fab from "@material-ui/core/Fab";
-// import AddIcon from "@material-ui/icons/Add";
-
-
-const useStyles = makeStyles({
-  root: {
-    width: "100%",
-    overflowX: "auto"
-  },
-  table: {
-    minWidth: 650
-  }
-});
 
 class EventsIndex extends Component {
 	componentDidMount() {

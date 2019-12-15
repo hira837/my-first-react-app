@@ -146,3 +146,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## その他
 - 前のコミットをまとめる ```git rebase -i HEAD~3```
+
+## Deploy
+- https://myfirstreactapp-821b3.firebaseapp.com/
