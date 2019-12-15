@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 
 import { postEvent } from "../actions";
 
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+
 class EventsNew extends Component {
   // initializeしたときにbindしておく
   constructor(props) {
@@ -15,10 +20,18 @@ class EventsNew extends Component {
     const { input, label, type, meta: { touched, error } } = field
 
     return (
-      <div>
+      <TextField
+        label={label}
+        placeholder={label}
+        type={type}
+        {...input}
+        fullWidth={true}
+        >
+      {/* <div>
         <input {...input} placeholder={label} type={type} />
         {touched && error && <span>{error}</span>}
-      </div>
+      </div> */}
+      </TextField>
     )
   }
 
@@ -29,18 +42,57 @@ class EventsNew extends Component {
 
   render() {
     const { handleSubmit, pristine, submitting, invalid } = this.props
+    const style = {margin: 12}
     return (
-      <form onSubmit={handleSubmit(this.onSubmit)}>
-        {/* FieldはreduxFormでデコレートされていないと使えない */}
-        <div><Field label="Title" name="title" tyle="text" component={this.renderField} /></div>
-        <div><Field label="Body" name="body" tyle="text" component={this.renderField} /></div>
-        
-        <div>
-          <input type="submit" value="Submit" disabled={pristine || submitting || invalid} />
-          <Link to="/" >Cancel</Link>
-        </div>
-      </form>
-    )
+      <div>
+        <Typography variant="subtitle1" gutterBottom>
+          新規イベントの追加
+        </Typography>
+        <form
+          noValidate
+          autoComplete="off"
+          onSubmit={handleSubmit(this.onSubmit)}
+        >
+          {/* FieldはreduxFormでデコレートされていないと使えない */}
+          <div>
+            <Field
+              label="Title"
+              name="title"
+              tyle="text"
+              component={this.renderField}
+            />
+          </div>
+          <div>
+            <Field
+              label="Body"
+              name="body"
+              tyle="text"
+              component={this.renderField}
+            />
+          </div>
+
+          <Button
+            variant="contained"
+            color="primary"
+            label="Submit"
+            type="submit"
+            children="Submit"
+            style={style}
+            disabled={pristine || submitting || invalid}
+          >
+            {/* <input type="submit"  /> */}
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            label="Cancel"
+            children="Cancel"
+            style={style}
+            href="/"
+          />
+        </form>
+      </div>
+    );
   }
 }
 
