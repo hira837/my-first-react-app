@@ -22,18 +22,17 @@ const store = createStore(reducer, enhancer)
 
 // Providerコンポーネント（すべてのコンポーネントでみれるように伝搬するための特殊なコンポーネント reacr-reduxで提供されている）で<App/>（既存のコンポーネント）を囲むことで、全てのコンポーネントからstoreにアクセスできるようになる
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/events/new" component={EventsNew} />
-        <Route path="/events/:id" component={EventsShow} />
-        <Route exact path="/" component={EventsIndex} />
-        <Route exact path="/events" component={EventsIndex} />
-      </Switch>
-    </BrowserRouter>
-  </Provider>
-  , 
-  document.getElementById('root')
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/events/new" component={EventsNew} />
+          <Route path="/events/:id" component={EventsShow} />
+          <Route exact path="/" component={EventsIndex} />
+          <Route exact path="/events" component={EventsIndex} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

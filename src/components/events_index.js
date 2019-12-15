@@ -5,6 +5,26 @@ import { Link } from 'react-router-dom';
 
 import { readEvents } from '../actions';
 
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
+
+
+const useStyles = makeStyles({
+  root: {
+    width: "100%",
+    overflowX: "auto"
+  },
+  table: {
+    minWidth: 650
+  }
+});
+
 class EventsIndex extends Component {
 	componentDidMount() {
 		this.props.readEvents()
@@ -12,36 +32,37 @@ class EventsIndex extends Component {
 
 	renderEvents() {
 		return _.map(this.props.events, event => (
-			<tr key={event.id}>
-				<td>{event.id}</td>
-				<td>
-					<Link to={`/events/${event.id}`}>
-					{event.title}
-					</Link>
-				</td>
-				<td>{event.body}</td>
-			</tr>
-		))
+      <TableRow key={event.id}>
+        <TableCell>{event.id}</TableCell>
+        <TableCell>
+          <Link to={`/events/${event.id}`}>{event.title}</Link>
+        </TableCell>
+        <TableCell>{event.body}</TableCell>
+      </TableRow>
+    ));
 	}
 
 	render() {
 	return (
-		<React.Fragment>
-			<table>
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Title</th>
-						<th>Body</th>
-					</tr>
-				</thead>
-				<tbody>
-					{this.renderEvents()}
-				</tbody>
-			</table>
+    <React.Fragment>
+      <Paper>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>Title</TableCell>
+              <TableCell>Body</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>{this.renderEvents()}</TableBody>
+        </Table>
+      </Paper>
 
-			<Link to="events/new">New Event</Link>
-		</React.Fragment>
+      <Button variant="outlined" color="primary">
+        <Link to="events/new">New Event</Link>
+      </Button>
+   
+    </React.Fragment>
   );
 	}
 }
